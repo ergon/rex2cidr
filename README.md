@@ -8,6 +8,14 @@ Docker installed on your host.
 
 ## Usage
 
+Build Docker image
+
+        $ ./build_docker.sh
+        
+Now you can write regular expressions to stdin of `./run_docker.sh`
+
+### Examples:
+
 Generate list of CIDR blocks from regular expression:
 
         $ echo -n "^1\.1\.1\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))$" | ./run_docker.sh
