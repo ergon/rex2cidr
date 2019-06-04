@@ -4,7 +4,7 @@ Tool to convert simple regular expressions matching IPv4 addresses to a list of 
 
 ## Prerequisites
 
-Docker installed on your host.
+Docker
 
 ## Usage
 
@@ -16,7 +16,7 @@ Now you can write regular expressions to stdin of `./run_docker.sh`
 
 ### Examples:
 
-Generate list of CIDR blocks from regular expression:
+Generate list of CIDR blocks from a regular expression
 
         $ echo -n "^1\.1\.1\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))$" | ./run_docker.sh
 
@@ -42,7 +42,7 @@ Generate list of matching IP addresses (do not combine them to CIDR blocks)
         10.0.0.14
         10.0.0.15
 
-Generate list of CIDR blocks from multiple regular expressions. Separate them with newlines or use regex alternations:
+Generate list of CIDR blocks from multiple regular expressions. Separate them with newlines or use regex alternations.
 
         $ echo -n "^1\.1\.1\.([0-9]|[1-9][0-9]|1([0-9][0-9])|2([0-4][0-9]|5[0-5]))$
           ^192\.168\.0\.([1-9]|[1-2][0-9]|3[0-2])$" | ./run_docker.sh
@@ -55,7 +55,11 @@ Generate list of CIDR blocks from multiple regular expressions. Separate them wi
         192.168.0.16/28
         192.168.0.32
 
+You can also run the tool, then paste a regular expression and mark the end of the input by pressing ctrl-d
 
+        ./run_docker.sh
+        ^10\.0\.0\.([1-9]|1[0-5])$
+        ctrl-d
 
 ## Limitations
 
