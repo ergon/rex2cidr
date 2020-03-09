@@ -24,16 +24,6 @@ exrex.CATEGORIES = {
         'category_any': sorted(frozenset({'a','b','c','d','e','f', ':', '.', '1', '6', '4', '5', '9', '2', '7', '0', '8', '3'})),
         }
 
-def ips(start, end, regex):
-    start = struct.unpack('>I', socket.inet_aton(start))[0]
-    end = struct.unpack('>I', socket.inet_aton(end))[0]
-    a = []
-    for i in range(start, end):
-        ip = socket.inet_ntoa(struct.pack('>I', i))
-        if regex.match(ip):
-            a.append(ip)
-    return a
-
 def gen_cidr(ip_start, ip_end):
     return netaddr.iprange_to_cidrs(ip_start, ip_end)
 
